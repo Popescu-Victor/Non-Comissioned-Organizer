@@ -4,15 +4,15 @@ import gradio as gr
 
 def file_return(file):
     df = pd.read_csv(file.name)
-    col5 = df.iloc[:, 5].tolist()
-    col7 = df.iloc[:, 7].tolist()
+    hw_link = df.iloc[:, 5].tolist()
+    student_username = df.iloc[:, 7].tolist()
     
-    col7 = [i.replace("Test Passes for Participant: ", "") for i in col7]
-    col5 = [i.replace(i, '''[xln url="'''+ i + '''"]Link[/xln]''') for i in col5]
+    student_username = [i.replace("Test Passes for Participant: ", "") for i in student_username]
+    hw_link = [i.replace(i, '''[xln url="'''+ i + '''"]Link[/xln]''') for i in hw_link]
     
     result = defaultdict(list)
 
-    for k, v in zip(col7, col5):
+    for k, v in zip(student_username, hw_link):
         result[k].append(v)
 
     output_final = ["Nume\tNumar Teme Necorectate\tLinkuri"]
