@@ -1,6 +1,6 @@
 import pandas as pd
 from collections import defaultdict
-import gradio as gr
+import gradio as gr # This library is for creating an interface that doesn't require opening .exe files, which is important since I and the other teachers using this are running the code off of military computers.
 
 def file_return(file):
     df = pd.read_csv(file.name)
@@ -21,7 +21,7 @@ def file_return(file):
     return "\n".join(output_final)
 
       
-
+# Gradio interface | ignore for .exe
 iface = gr.Interface(
     fn=file_return,
     inputs=gr.File(file_types=[".csv"]),
