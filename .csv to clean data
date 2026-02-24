@@ -2,7 +2,7 @@ import pandas as pd
 from collections import defaultdict
 import gradio as gr # This library is for creating an interface that doesn't require opening .exe files, which is important since I and the other teachers using this are running the code off of military computers.
 
-def file_return(file):
+def file_return(file): # The issue with this part is that it requires data to always be in the same column, which is not the case.
     df = pd.read_csv(file.name)
     hw_link = df.iloc[:, 5].tolist()
     student_username = df.iloc[:, 7].tolist()
