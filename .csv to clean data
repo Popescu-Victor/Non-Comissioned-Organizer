@@ -20,8 +20,8 @@ def file_return(file): # The issue with this part is that it requires data to al
         output_final.append(f"{k} are {len(v)} teme necorectate: {' '.join(v)} ")
     return "\n".join(output_final)
 
-      
-# Gradio interface | ignore for .exe
+# In the other sections I've used Tkinter to generate the GUI, but am using Gradio here. This is because running .exe or .py files on military computers isn't always permitted, so I wanted to provide a browser-based alternative.
+
 iface = gr.Interface(
     fn=file_return,
     inputs=gr.File(file_types=[".csv"]),
