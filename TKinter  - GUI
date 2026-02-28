@@ -31,6 +31,8 @@ canvas_default.pack(padx=10, pady=10)
 browse = tk.Button(root, text="Browse File", command=browse_file)
 browse.pack(pady=10)
 
+# I'm currently experimenting with two different interfactes (hence the mismatch between this file and the one called 'Single File Variant'. This version has a dropdown menu with two options to chose from (the two types of analysis) instead of having a separate button for each one. The difference is purely aesthetic and has no impact on the actual reporting.
+
 def provide_tool():
     btn.pack_forget()
     browse.pack_forget()
