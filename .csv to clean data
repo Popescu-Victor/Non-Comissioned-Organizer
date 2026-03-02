@@ -22,6 +22,10 @@ def file_return(file): # The issue with this part is that it requires data to al
     return "\n".join(output_final)
 
     # Insert grid layout and plot data.
+    fig, ax = plt.subplots()
+    labels_rem = [label.replace("Test Passes for Participant:", "") for label in counts.index]
+    ax.pie(counts.values, labels=labels_rem, autopct='%1.1f%%')
+    ax.set_title("Procentant Cursant din Total")
 
 iface = gr.Interface(
     fn=file_return,
