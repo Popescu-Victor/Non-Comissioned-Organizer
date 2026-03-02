@@ -8,7 +8,7 @@ from collections import defaultdict
 import sqlite3
 
 database = sqlite3.connect()
-curs = connect.cursor()
+curs = database.cursor()
 
 curs.execute(''' CREATE TABLE hw_clean (username, links) ''')
 
@@ -42,6 +42,8 @@ def browse_analiza():
     df = df.replace("Nu", 0)
     df = df.replace("Da", 2)
     df = df.replace("Partial", 1)
+
+    # And this is for returning the final score for the teacher's performance as text.
     scor_deprinderi = [1, 0.5, 1, 0.5, 2, 2, 1, 0.5, 1, 0.5]
     df["Total"] = df.iloc[:, 1:11].mul(scor_deprinderi).sum(axis=1)
     avg_table = (df.groupby(df.columns[0], as_index=False)["Total"].mean())
@@ -49,6 +51,7 @@ def browse_analiza():
     for _, row in avg_table.iterrows():
         text_box.insert(tk.END, f"{row['Nume Tutore']}: {round(row['Total'])}%\n")
 
+    # This is for returning the final score as bar chart.
     fig = Figure(figsize=(6, 4))
     ax = fig.add_subplot(111)
     ax.barh(avg_table["Nume Tutore"], avg_table["Total"])
