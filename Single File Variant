@@ -52,6 +52,7 @@ def browse_analiza():
         text_box.insert(tk.END, f"{row['Nume Tutore']}: {round(row['Total'])}%\n")
 
     # This is for returning the final score as bar chart.
+    avg_table = avg_table.sort_values("Total", ascending=True)
     fig = Figure(figsize=(6, 4))
     ax = fig.add_subplot(111)
     ax.barh(avg_table["Nume Tutore"], avg_table["Total"])
