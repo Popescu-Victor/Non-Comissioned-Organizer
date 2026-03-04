@@ -97,7 +97,7 @@ def browse_hw():
     canvas.draw()
     canvas.get_tk_widget().grid(row=0, column=0)
 
-
+# There's two things this small app is used for: creating homework reports and reating live class reports. These two buttons are for separating the two tasks.
 btn1 = tk.Button(root, text="Formatare Teme", command=browse_hw)
 btn1.grid(row=1, column=0, sticky="ew", padx=10, pady=10)
 
