@@ -23,9 +23,11 @@ def cv_code():
         cv_analyse()
 
 def cv_analyse(): 
-    if clean[1] == 'analyse':
+    if len(clean) == 2:
+     if clean[1] == 'analyse':
         print('RETURN cv analysis')
-
+    else:
+        print('Displaying analysis for ' + clean[2])
 def cv_convert():
     if clean[1] == 'convert':
         print('RETURN converted text')
