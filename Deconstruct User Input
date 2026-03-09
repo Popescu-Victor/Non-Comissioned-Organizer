@@ -1,3 +1,5 @@
+# There will be a entry widget in the gui where users will be able to write their custom scripts for doing creating these reports. For the time being, the variable "input" is a placeholder for entry.get().
+
 input = "cv --> yuu"
 clean = input.split(" --> ")
 
